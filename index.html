@@ -255,19 +255,20 @@
     </script>
     <script>
 const MAIN_SITE = "https://zoryvax.neonnexusx.games";
-const HEALTH = MAIN_SITE + "/health";
+const HEALTH = MAIN_SITE + "/health?_=" + Date.now();
 
 async function checkSite() {
     try {
-        const res = await fetch(HEALTH, {
+        await fetch(HEALTH, {
+            method: "HEAD",
+            mode: "no-cors",
             cache: "no-store"
         });
 
-        if (res.ok) {
-            window.location.replace(MAIN_SITE);
-        }
+        // If fetch succeeds without a network error, redirect back.
+        window.location.replace(MAIN_SITE);
     } catch (e) {
-        // Still offline.
+        // Still offline or network error.
     }
 }
 
