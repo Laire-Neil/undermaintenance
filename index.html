@@ -14,11 +14,13 @@
             background-color: #0f0f11; /* Dark background matching screenshots */
             color: #ffffff;
             margin: 0;
-            overflow: hidden; /* Prevent scrolling while on this page */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-y: auto; /* Allow vertical scroll on mobile */
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
+            padding: 2rem 0;
         }
 
         /* Gradient overlay for a cinematic feel */
@@ -52,7 +54,6 @@
         }
         
         .glitch-text {
-            font-size: 4rem;
             font-weight: 800;
             position: relative;
             display: inline-block;
@@ -180,10 +181,10 @@
 
         <!-- Glitch Title -->
         <div class="glitch-wrapper mb-4">
-            <h1 class="glitch-text text-5xl md:text-6xl" data-text="We'll Be Right Back">We'll Be Right Back</h1>
+            <h1 class="glitch-text text-3xl sm:text-5xl md:text-6xl" data-text="We'll Be Right Back">We'll Be Right Back</h1>
         </div>
 
-        <p class="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto leading-relaxed">
+        <p class="text-gray-400 text-sm sm:text-lg md:text-xl mb-8 max-w-xl mx-auto leading-relaxed px-4">
             Zoryvax is currently undergoing scheduled maintenance to improve your cinematic experience. 
             Grab some popcorn and check back soon!
         </p>
@@ -193,18 +194,18 @@
             <source src="./Untitled design.mp4" type="video/mp4">
         </video>
 
-        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center w-full px-4">
             <!-- Go Back Button -->
             <a href="https://zoryvax.neonnexusx.games" 
-               class="contact-btn inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold tracking-wide uppercase text-sm text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>
+               class="contact-btn inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold tracking-wide uppercase text-xs sm:text-sm text-center w-full sm:w-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>
                 Go Back To Streaming Site
             </a>
 
             <!-- Contact Button -->
             <a href="mailto:zoryvax.cinema@gmail.com?subject=Website%20Feedback" 
-               class="contact-btn inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold tracking-wide uppercase text-sm text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></svg>
+               class="contact-btn inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold tracking-wide uppercase text-xs sm:text-sm text-center w-full sm:w-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" class="sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></svg>
                 Contact & Feedback
             </a>
         </div>
