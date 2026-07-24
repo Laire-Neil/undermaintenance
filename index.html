@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoryvax - Under Maintenance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://penguinsincequalify.com/f3/b8/6b/f3b86b0e255476a0d6ec98bac19b11ab.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f11; /* Dark background matching screenshots */
+            color: #ffffff;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling while on this page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Gradient overlay for a cinematic feel */
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(30,30,35,0) 0%, rgba(15,15,17,1) 100%);
+            z-index: -1;
+        }
+
+        /* Subtle animated background elements (stars/dust) */
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Glitch effect for the main heading */
+        .glitch-wrapper {
+            position: relative;
+        }
+        
+        .glitch-text {
+            font-size: 4rem;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff003c; /* Zoryvax Red */
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(13px, 9999px, 83px, 0); }
+            5% { clip: rect(66px, 9999px, 50px, 0); }
+            10% { clip: rect(16px, 9999px, 12px, 0); }
+            15% { clip: rect(4px, 9999px, 26px, 0); }
+            20% { clip: rect(96px, 9999px, 63px, 0); }
+            25% { clip: rect(10px, 9999px, 7px, 0); }
+            30% { clip: rect(16px, 9999px, 34px, 0); }
+            35% { clip: rect(62px, 9999px, 45px, 0); }
+            40% { clip: rect(40px, 9999px, 20px, 0); }
+            45% { clip: rect(11px, 9999px, 49px, 0); }
+            50% { clip: rect(59px, 9999px, 99px, 0); }
+            55% { clip: rect(94px, 9999px, 34px, 0); }
+            60% { clip: rect(3px, 9999px, 20px, 0); }
+            65% { clip: rect(98px, 9999px, 44px, 0); }
+            70% { clip: rect(23px, 9999px, 16px, 0); }
+            75% { clip: rect(78px, 9999px, 57px, 0); }
+            80% { clip: rect(15px, 9999px, 15px, 0); }
+            85% { clip: rect(69px, 9999px, 81px, 0); }
+            90% { clip: rect(32px, 9999px, 37px, 0); }
+            95% { clip: rect(2px, 9999px, 9px, 0); }
+            100% { clip: rect(80px, 9999px, 60px, 0); }
+        }
+
+        /* Custom button styling */
+        .contact-btn {
+            background-color: transparent;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-btn:hover {
+            border-color: #ff003c; /* Zoryvax Red */
+            background-color: rgba(255, 0, 60, 0.1);
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.3);
+        }
+
+        /* Simple CSS Animation (Bouncing Popcorn/Reel placeholder) */
+        .anim-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+        }
+
+        .bounce-shape {
+            width: 60px;
+            height: 60px;
+            background-color: #ff003c;
+            border-radius: 20%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+        }
+
+        .bounce-shadow {
+            width: 60px;
+            height: 10px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: shrink 2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+        }
+
+        @keyframes bounce {
+            0%, 100% { bottom: 0; height: 60px; width: 60px; border-radius: 20%; }
+            50% { bottom: 80px; height: 65px; width: 55px; border-radius: 50%; }
+        }
+        
+        @keyframes shrink {
+            0%, 100% { width: 60px; opacity: 0.5; }
+            50% { width: 20px; opacity: 0.1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+    <div id="particles-container"></div>
+
+    <main class="text-center z-10 px-6 max-w-3xl w-full flex flex-col items-center">
+        
+        <!-- Logo -->
+        <img src="./logo.png" alt="Zoryvax" class="w-24 md:w-32 mx-auto mb-6 drop-shadow-[0_0_15px_rgba(255,0,60,0.5)]">
+
+        <!-- Glitch Title -->
+        <div class="glitch-wrapper mb-4">
+            <h1 class="glitch-text text-5xl md:text-6xl" data-text="We'll Be Right Back">We'll Be Right Back</h1>
+        </div>
+
+        <p class="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto leading-relaxed">
+            Zoryvax is currently undergoing scheduled maintenance to improve your cinematic experience. 
+            Grab some popcorn and check back soon!
+        </p>
+
+        <!-- Video Logo -->
+        <video autoplay muted loop playsinline class="w-full max-w-md mx-auto mb-10 rounded-xl shadow-[0_0_30px_rgba(0,255,255,0.2)] border border-gray-800">
+            <source src="./Anime_this_Logo_for_me_please.mp4" type="video/mp4">
+        </video>
+
+        <!-- Contact Button -->
+        <a href="mailto:zoryvax.cinema@gmail.com?subject=Website%20Feedback" 
+           class="contact-btn inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold tracking-wide uppercase text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></svg>
+            Contact & Feedback
+        </a>
+
+        <p class="mt-12 text-xs text-gray-600">
+            &copy; <span id="year"></span> Zoryvax. All rights reserved.
+        </p>
+
+    </main>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Generate floating particles for background effect
+        const particleContainer = document.getElementById('particles-container');
+        const numParticles = 30;
+
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random properties
+            const size = Math.random() * 4 + 1; // 1px to 5px
+            const left = Math.random() * 100; // 0% to 100%
+            const duration = Math.random() * 15 + 10; // 10s to 25s
+            const delay = Math.random() * 10; // 0s to 10s
+            const opacity = Math.random() * 0.5 + 0.1;
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}vw`;
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.opacity = opacity;
+
+            particleContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
