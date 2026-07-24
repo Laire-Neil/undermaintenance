@@ -254,26 +254,30 @@
         }
     </script>
     <script>
-const MAIN_SITE = "https://zoryvax.neonnexusx.games";
-const HEALTH = MAIN_SITE + "/health?_=" + Date.now();
+        const MAIN_SITE = "https://zoryvax.neonnexusx.games";
 
-async function checkSite() {
-    try {
-        await fetch(HEALTH, {
-            method: "HEAD",
-            mode: "no-cors",
-            cache: "no-store"
-        });
+        async function checkSite() {
+            // Generate a fresh timestamp for each check to bypass cache
+            const HEALTH = MAIN_SITE + "/health?_=" + Date.now();
+            
+            try {
+                const response = await fetch(HEALTH, {
+                    method: "HEAD",
+                    cache: "no-store"
+                });
 
-        // If fetch succeeds without a network error, redirect back.
-        window.location.replace(MAIN_SITE);
-    } catch (e) {
-        // Still offline or network error.
-    }
-}
+                // Only redirect if the server responds with a success status (200-299)
+                if (response.ok) {
+                    window.location.replace(MAIN_SITE);
+                }
+            } catch (e) {
+                // Fails silently in the background (network error, offline, etc.)
+                // This prevents the page and design from constantly reloading.
+            }
+        }
 
-checkSite();
-setInterval(checkSite, 10000);
+        // Check the site status every 10 seconds silently
+        setInterval(checkSite, 10000);
     </script>
 </body>
 </html>
